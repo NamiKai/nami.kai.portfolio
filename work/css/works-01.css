@@ -1,0 +1,1314 @@
+/* =========================================================
+   works-01.css  (works詳細ページ用)
+   Section: work-intro
+   Breakpoint: 992px (<=992 SP)
+========================================================= */
+
+/* ===== Color / Typography assumptions ===== */
+:root{
+  --c-text: #EDEDED;
+  --c-bg: #6082B6;
+  --c-blue: #0D5297;
+  --c-green: #4BCCBE;
+  --c-yellow: #DDBC00;
+
+  --bp-sp: 992px;
+
+  /* 作品詳細ページ側のコンテンツ幅（必要なら調整OK） */
+  --container-pc: 1120px;
+  --container-sp: 300px;
+
+  --line: rgba(237, 237, 237, 0.35);
+}
+
+body{
+  margin: 0;
+  color: var(--c-text);
+  background: var(--c-bg);
+  font-family: "Noto Sans JP", sans-serif;
+}
+.en{
+  font-family: "ADAM.CG PRO", "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0; /* 必要なら */
+}
+.pf{
+  font-family: "VDL-PenLetter", "Noto Sans JP", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0; /* 必要なら */
+}
+
+/* メニュー開いてる時はスクロール停止 */
+body.is-menu-open{
+  overflow: hidden;
+}
+
+/* =========================
+  HEADER（常に表示）
+========================= */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* sp-menuより上にする */
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 48px;
+}
+
+@media (max-width: 992px){
+  .header-inner{
+  padding: 10px 16px;
+  }
+}
+
+/* ロゴ */
+.header-logo{
+  color: var(--c-text);
+  text-decoration: none;
+  letter-spacing: .06em;
+  font-size: 32px;
+}
+
+
+/* =========================
+  PCナビ（>=993px想定）
+========================= */
+.pc-nav{
+  display: none; /* デフォはSP扱い */
+}
+
+.pc-nav-list{
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  margin: 0;
+  padding: 0;
+}
+
+.pc-nav-link{
+  color: var(--c-text);
+  text-decoration: none;
+  letter-spacing: .08em;
+}
+
+/* =========================
+  ハンバーガー（<=992px想定）
+========================= */
+.hamburger{
+  display: inline-flex; /* SPで表示 */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 3本線 */
+.hamburger-line-top,
+.hamburger-line-middle,
+.hamburger-line-bottom{
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--c-text);
+  border-radius: 999px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.hamburger-line-top{ top: 14px; }
+.hamburger-line-middle{ top: 21px; }
+.hamburger-line-bottom{ top: 28px; }
+
+/* ×に変形（open） */
+.hamburger.is-open .hamburger-line-top{
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open .hamburger-line-middle{
+  opacity: 0;
+}
+.hamburger.is-open .hamburger-line-bottom{
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+  SP MENU（右からスライド / フルスクリーン / 縦中央）
+========================= */
+.sp-menu{
+  position: fixed;
+  inset: 0;                 /* top/right/bottom/left:0 */
+  z-index: 900;             /* headerより下 */
+  background: var(--c-bg);  /* ベタ塗り */
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  display: flex;
+  align-items: center;      /* 縦中央 */
+  justify-content: center;  /* 横中央 */
+  pointer-events: none;     /* 閉じてる時はクリックできない */
+}
+
+/* 開いた状態 */
+.sp-menu.is-open{
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* 中身のパネル（必要に応じて幅を調整） */
+.sp-menu-panel{
+  width: min(80vw, 420px);
+}
+
+/* ナビ */
+.sp-menu-nav{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: center;
+}
+
+.sp-menu-link{
+  color: var(--c-text);
+  text-decoration: none;
+  letter-spacing: .12em;
+  font-size: 20px;
+}
+
+/* いまsp-menu-bgをHTMLに残しているので、邪魔しないように */
+.sp-menu-bg{
+  display: none;
+}
+
+/* =========================
+  ブレイクポイント：992px
+  PCでは pc-nav表示、hamburger/sp-menu非表示
+========================= */
+@media (min-width: 993px){
+  .pc-nav{
+    display: block;
+  }
+  .hamburger{
+    display: none;
+  }
+  .sp-menu{
+    display: none;
+  }
+}
+/* =========================
+  共通：固定ヘッダー分の余白（あると便利）
+  ※ヘッダー高さに合わせて後で微調整OK
+========================= */
+.main{
+  padding-top: 76px; /* headerがfixedなので内容が隠れないように */
+}
+
+/* PCでは改行させない */
+.sp-only {
+  display: none;
+}
+
+/* SPだけ改行 */
+@media (max-width: 992px) {
+  .sp-only {
+    display: inline;
+  }
+}
+
+
+
+/* work-intro内だけの基本 */
+.work-intro{
+  color: var(--c-text);
+}
+
+.work-intro .work-title,
+.work-intro .work-title-wd,
+.work-intro .work-info{
+  width: min(var(--container-pc), 100% - 80px);
+  margin-inline: auto;
+}
+
+
+@media (max-width: 992px){
+  .work-intro .work-title,
+  .work-intro .work-title-wd,
+  .work-intro .work-info{
+    width: min(var(--container-sp), 100% - 40px);
+  }
+}
+
+/* =========================================================
+   1) タイトル帯（みらい工務店…の青帯 + 背景の黄/緑）
+========================================================= */
+.work-title, .work-title-wd {
+  position: relative;
+  margin-top: 148px;
+  margin-bottom: 28px;
+  padding-top: 46px;  /* 背景の黄/緑が見える余白 */
+  padding-bottom: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 992px){
+  .work-title{
+    margin-top: 110px;
+    margin-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 12px;
+  }
+  .work-title-wd{
+    margin-top: 110px;
+    margin-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 12px;
+  }
+}
+
+/* 背景の黄/緑（HTML内の span を装飾用レイヤーとして使う） */
+.work-title__ornament{
+  position: absolute;
+  display: block;
+  z-index: 0;
+}
+
+.work-title__ornament--yellow{
+  background: var(--c-yellow);
+  width: 806px;
+  height: 160px;
+  left: 0;
+  top: 0;
+}
+
+.work-title__ornament--green{
+  background: var(--c-green);
+  width: 806px;
+  height: 160px;
+  right: 0;
+  top: 96px;
+}
+
+
+@media (max-width: 992px){
+  .work-title__ornament--yellow{
+    width: 218px;
+    height: 66px;
+    left: 0;
+    top: 0;
+  }
+  .work-title__ornament--green{
+    width: 218px;
+    height: 66px;
+    right: 0;
+    top: 70px;
+  }
+  .work-title-wd .work-title__ornament--green{
+  width: 218px;
+    height: 66px;
+    right: 0;
+  top: 106px;
+}
+}
+
+/* メインの青帯（h1） */
+.work-title__text{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background: var(--c-blue);
+  color: var(--c-text);
+  width: 921px;
+  margin: 0;
+  padding: 53px 0;
+  text-align: center;
+  font-size: 36px;
+  line-height: 150%;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+
+@media (max-width: 992px){
+  .work-title__text{
+    width: 217px;
+    padding: 14px 5px;
+    font-size: 24px;
+  }
+  .work-title-wd .work-title__text{
+    width: 277px;
+    padding: 14px 5px;
+    font-size: 24px;
+  }
+}
+
+/* =========================================================
+   Breadcrumb（PC only）
+========================================================= */
+.breadcrumb{
+  width: min(var(--container-pc), 100% - 80px);
+  margin-inline: auto;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--c-text);
+  padding-top: 25px;
+}
+
+.breadcrumb__list{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb__item{
+  display: flex;
+  align-items: center;
+  color: var(--c-text);
+}
+
+/* 区切り「>」 */
+.breadcrumb__item:not(:last-child)::after{
+  content: "▶";
+  font-size: 8px;
+  margin-left: 8px;
+  opacity: 0.7;
+}
+
+/* リンク */
+.breadcrumb a{
+  color: var(--c-text);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* hover（任意・不要なら消してOK） */
+.breadcrumb a:hover{
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+/* 現在地 */
+.breadcrumb__item--current{
+  font-weight: 700;
+}
+
+/* ===== SPでは非表示 ===== */
+@media (max-width: 992px){
+  .breadcrumb{
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   2) 制作情報（dlの表レイアウト）
+========================================================= */
+.work-info{
+  margin-bottom: 48px;
+}
+
+.work-info__list{
+  margin-top: 120px;
+  padding: 0;
+}
+
+@media (max-width: 992px){
+  .work-info__list{
+  margin-top: 66px;
+  padding: 0;
+}
+}
+
+/* 1行 */
+.work-info__row{
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-info__row:last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.work-info__term{
+  margin: 0;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.work-info__desc{
+  margin: 0;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--c-text);
+}
+
+@media (max-width: 992px){
+  .work-info{
+    margin-bottom: 34px;
+  }
+
+  .work-info__row{
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 12px 0;
+  }
+
+  .work-info__term{
+    font-size: 16px;
+  }
+
+  .work-info__desc{
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   sectionKODAWARI（HTMLそのまま対応）
+   Breakpoint: 992px（<=992 SP）
+========================================================= */
+
+/* ---- 前提色（必要なら works CSS 全体で共通化OK） ---- */
+:root{
+  --c-text: #EDEDED;
+  --c-blue: #0D5297;
+  --c-green: #4BCCBE;
+
+  /* 罫線色：JSON由来（r:0.6 g:0.6627 b:0.6902） */
+  --c-border: #99A9B0;
+}
+
+/* セクション全体 */
+.sectionKODAWARI{
+  color: var(--c-text);
+}
+
+/* 内側幅（PC:1120 / SP:300 想定） */
+.sectionKODAWARI .section-inner{
+  width: 1120px;
+  margin: 0 auto;
+  margin-top: 150px;
+
+}
+
+@media (max-width: 992px){
+  .sectionKODAWARI .section-inner{
+    width: 300px;
+    margin-top: 80px;
+  }
+}
+
+/* =========================
+  タイトル（青帯 + 緑の斜め帯）
+========================= */
+.sectionKODAWARI .section-title{
+  position: relative;
+  width: 1120px;
+  height: 140px; /* title全体の高さ（PC） */
+  margin: 0 auto;
+}
+
+/* 緑の斜め帯（背面） */
+.sectionKODAWARI .title-ornament-green{
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 1100px;
+  height: 96px;
+  background: var(--c-green);
+  transform: rotate(2.183deg); /* 0.0381026rad */
+  transform-origin: center;
+  z-index: 0;
+}
+
+/* 青帯（前面） */
+.sectionKODAWARI .title-ornament-blue{
+  position: absolute;
+  left: 0;
+  width: 1120px;
+  height: 96px;
+  background: var(--c-blue);
+  z-index: 1;
+}
+
+/* 見出し文字 */
+.sectionKODAWARI .section-title-text{
+  position: absolute;
+  left: 0;
+  width: 1120px;
+  margin: 0;
+  text-align: center;
+  top: 20px;
+  font-size: 32px;
+  line-height: 150%;
+  font-weight: 700;
+
+  z-index: 2;
+}
+
+/* タイトル → リスト上の余白 */
+.sectionKODAWARI .kodawari-list{
+  margin-top: 80px;
+}
+
+/* =========================
+   こだわりカード（PC：画像左＋文章右）
+========================= */
+.sectionKODAWARI .kodawari-list{
+  display: flex;
+  flex-direction: column;
+  gap: 99px; /* 1枚目→2枚目の間（PC） */
+}
+
+.sectionKODAWARI .kodawari-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px; /* 画像(360)→テキスト(744) の間（PC） */
+}
+
+/* 画像枠 */
+.sectionKODAWARI .kodawari-media{
+  width: 360px;
+  height: 240px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.sectionKODAWARI .kodawari-media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Figmaの見え方に応じて contain に変更可 */
+  object-position: center top;
+}
+
+/* テキスト枠 */
+.sectionKODAWARI .kodawari-body{
+  width: 744px;
+  flex: 0 0 auto;
+}
+
+/* 小見出し */
+.sectionKODAWARI .kodawari-title{
+  margin: 0 0 18px;
+  font-size: 24px;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+/* 下線（小見出し下）…HTMLに無いので疑似要素で作る */
+.sectionKODAWARI .kodawari-title::after{
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--c-border);
+  margin-top: 18px;
+}
+
+/* 本文 */
+.sectionKODAWARI .kodawari-text{
+  margin: 20px 0 0; /* 線→本文 */
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+}
+
+/* =========================
+   SP（縦積み）
+========================= */
+@media (max-width: 992px){
+  .sectionKODAWARI .section-title{
+    width: 300px;
+    height: 76px;
+  }
+
+  .sectionKODAWARI .title-ornament-green{
+    margin-top: 10px;
+    left: 5px;
+    width: 290px;
+    height: 54px;
+    transform: rotate(4deg); /* 0.0781841rad */
+  }
+
+  .sectionKODAWARI .title-ornament-blue{
+    margin-top: 10px;
+    width: 300px;
+    height: 54px;
+  }
+
+  .sectionKODAWARI .section-title-text{
+    width: 300px;
+    font-size: 20px;
+  }
+
+  .sectionKODAWARI .kodawari-list{
+    margin-top: 30px;
+    gap: 30px;
+  }
+
+  .sectionKODAWARI .kodawari-item{
+    flex-direction: column;
+    gap: 10px; /* SPで画像→テキストの間 */
+  }
+
+  .sectionKODAWARI .kodawari-media{
+    width: 300px;
+    height: 200px;
+  }
+
+  .sectionKODAWARI .kodawari-body{
+    width: 300px;
+  }
+
+  .sectionKODAWARI .kodawari-title{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .sectionKODAWARI .kodawari-title::after{
+    margin-top: 10px;
+  }
+
+  .sectionKODAWARI .kodawari-text{
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   sectionSS（SPのみタブ切替 / PCもSPも枠内スクロール）
+   Breakpoint: 992px（<=992 SP）
+========================================================= */
+
+/* 色など前提（すでに :root があるなら重複はどちらか1つでOK） */
+:root{
+  --c-text: #EDEDED;
+  --c-blue: #0D5297;
+  --c-green: #4BCCBE;
+  --c-yellow: #DDBC00;
+}
+
+/* セクション全体 */
+.sectionSS{
+  color: var(--c-text);
+}
+
+/* 内側幅（PC:1120 / SP:300） */
+.sectionSS .section-inner{
+  width: 1120px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+@media (max-width: 992px){
+  .sectionSS .section-inner{
+    width: 300px;
+    margin-top: 80px;
+  }
+}
+
+/* -------------------------
+   タイトル（sectionSSは黄/青）
+   ※あなたのHTMLが title-ornament-yellow を持っている前提
+------------------------- */
+.sectionSS .section-title{
+  position: relative;
+  width: 1120px;
+  height: 140px;          /* 青帯の高さ */
+  margin: 0 auto;
+}
+
+.sectionSS .title-ornament-blue{
+  position: absolute;
+  left: 0;
+  width: 1120px;
+  height: 96px;
+  background: var(--c-blue);
+  z-index: 1;
+}
+
+.sectionSS .title-ornament-yellow{
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 1100px;
+  height: 96px;
+  background: var(--c-yellow);
+  transform: rotate(-2.183deg); 
+  z-index: 0;
+}
+
+
+.sectionSS .section-title-text{
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  width: 1120px;
+  top: 20px;
+  text-align: center;
+  font-size: 32px;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+@media (max-width: 992px){
+  .sectionSS .section-title{
+    width: 300px;
+  }
+  .sectionSS .title-ornament-yellow{
+    margin-top: 10px;
+    left: 5px;
+    width: 290px;
+    height: 100px;
+    transform: rotate(-6deg);
+  }
+  .sectionSS .title-ornament-blue{
+margin-top: 10px;
+    width: 300px;
+    height: 100px;
+  }
+
+  .sectionSS .section-title-text{
+    font-size: 20px; 
+    width: 300px;  /* 必要なら後で調整 */
+    top: 30px;
+  }
+}
+
+/* タイトル → 中身の間 */
+.sectionSS .sectionSS__pc,
+.sectionSS .sectionSS__sp{
+  margin-top: 30px;
+}
+
+/* スクロールダウンアニメーションとスクショを並べる */
+.ss-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px
+}
+
+/* スクロールダウンアニメーション */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+.scroll_down{
+  position:relative;
+  bottom: auto;
+  left: auto;
+  width: 24px;
+  height: 800px;
+}
+
+.scroll_down a{
+  position: static;
+  color: var(--c-text);
+  padding-top: 570px;
+  font-size: 16px;
+  font-family: 'Alata', sans-serif;
+  letter-spacing: .2em;
+  writing-mode: vertical-lr;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.scroll_down:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--c-text);
+  animation:
+    circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite;
+}
+
+@keyframes circlemove{
+  0%{bottom:140px;}
+  100%{bottom:0px;}
+}
+
+@keyframes cirlemovehide{
+  0%{opacity:0}
+  50%{opacity:1;}
+  80%{opacity:0.9;}
+  100%{opacity:0;}
+}
+
+.scroll_down:after{
+  content:"";
+  position: absolute;
+  bottom:0;
+  left:10px;
+  width:2px;
+  height: 140px;
+  background:var(--c-text);
+}
+
+/* ===== SPタブ内だけ：スクショ＋scrollを右下揃えで横並び ===== */
+@media (max-width: 992px){
+  .sectionSS__sp .ss-box--spTab{
+    display: flex;
+    align-items: flex-end; /* 右下揃え */
+    gap: 4px;
+  }
+
+
+
+  /* SPではscroll_downの高さをスクロール枠の高さに合わせる */
+  .sectionSS__sp .scroll_down--sp{
+    height: 500px; /* いま .ss-scroll の高さが 500px なので合わせる :contentReference[oaicite:4]{index=4} */
+  }
+
+  /* 文字の位置だけSP用に微調整（好みで数値だけ調整してOK） */
+  .sectionSS__sp .scroll_down--sp a{
+    padding-top: 270px;
+  }
+}
+
+/* -------------------------
+   PC表示ブロック：常時2枚（タブなし）
+   ※PCでもスクロール枠にしたいので ss-item を枠化
+------------------------- */
+.sectionSS__pc .ss-grid{
+  display: flex;
+  gap: 40px; /* 2枚の間隔（必要なら後で詰める） */
+  align-items: flex-start;
+}
+
+/* 各枠（スクロール可能） */
+.sectionSS__pc .ss-item{
+  margin: 0;
+  width: 500px;         /* 1120の中で2枚置ける想定。必要なら調整 */
+}
+
+.sectionSS__pc .ss-item img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* “枠内スクロール”を成立させるコンテナ（figureをスクロール枠化） */
+.sectionSS__pc .ss-item{
+  height: 800px;        /* ここがスクロール枠の高さ。Figmaに合わせて後で詰める */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255,255,255,0.06); /* 枠が見やすいように薄く（不要なら消してOK） */
+}
+
+/* SPではPC表示ブロックを消す（タブの方を出す） */
+@media (max-width: 992px){
+  .sectionSS__pc{ display: none; }
+}
+
+/* -------------------------
+   SP表示ブロック：タブ切替（SPのみ）
+------------------------- */
+.sectionSS__sp{
+  display: none; /* PCでは隠す */
+}
+
+@media (max-width: 992px){
+  .sectionSS__sp{ display: block; }
+}
+
+/* tabs nav */
+.sectionSS .tabs-nav{
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  margin-bottom: 16px;
+  width: 272px;
+}
+
+.sectionSS .tabs-tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--c-text);
+  font-size: 18px;
+  line-height: 150%;
+  padding: 6px 10px;
+  cursor: pointer;
+  opacity: 0.75;
+  font-family: "ADAM.CG PRO", "Noto Sans JP", sans-serif ;
+  font-weight: 200;
+}
+
+.sectionSS .tabs-tab.is-active{
+  opacity: 1;
+  font-weight: 700;
+  text-decoration: none; 
+}
+
+/* panels */
+.sectionSS .tabs-panels{
+  margin-top: 0;
+}
+
+/* SP側のスクロール枠（あなたのHTMLでは .ss-scroll を使っている） */
+.sectionSS .ss-scroll{
+  width: 272px;
+  height: 500px;        /* スクロール枠の高さ（後でFigmaに合わせて詰める） */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255,255,255,0.06); /* 不要なら消してOK */
+}
+
+.sectionSS .ss-scroll img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* タブパネルの基本 */
+.sectionSS .tabs-panel[hidden]{
+  display: none !important;
+}
+
+/* =============== */
+/* sectionOTHERS : work-card (Figma準拠トリミング) */
+/* =============== */
+
+:root{
+  --c-blue: #0D5297;
+  --c-more: #4BCCBE;
+}
+
+.sectionOTHERS .section-inner{
+  width: 1120px;
+  margin: 0 auto;
+  margin-top: 150px;
+
+}
+
+@media (max-width: 992px){
+  .sectionOTHERS .section-inner{
+    width: 300px;
+    margin-top: 90px;
+  }
+}
+
+/* =========================
+  タイトル（青帯 + 緑の斜め帯）
+========================= */
+.sectionOTHERS .section-title{
+  position: relative;
+  width: 1120px;
+  height: 140px; /* title全体の高さ（PC） */
+  margin: 0 auto;
+}
+
+/* 緑の斜め帯（背面） */
+.sectionOTHERS .title-ornament-green{
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 1100px;
+  height: 96px;
+  background: var(--c-green);
+  transform: rotate(2.183deg); /* 0.0381026rad */
+  transform-origin: center;
+  z-index: 0;
+}
+
+/* 青帯（前面） */
+.sectionOTHERS .title-ornament-blue{
+  position: absolute;
+  left: 0;
+  width: 1120px;
+  height: 96px;
+  background: var(--c-blue);
+  z-index: 1;
+}
+
+/* 見出し文字 */
+.sectionOTHERS .section-title-text{
+  position: absolute;
+  left: 0;
+  width: 1120px;
+  margin: 0;
+  text-align: center;
+  top: 20px;
+  font-size: 32px;
+  line-height: 150%;
+  font-weight: 700;
+
+  z-index: 2;
+}
+
+/* タイトル → リスト上の余白 */
+.sectionOTHERS .others-grid{
+  margin-top: 30px;
+}
+
+@media (max-width: 992px){
+  .sectionOTHERS .section-title{
+    width: 300px;
+    height: 76px;
+  }
+
+  .sectionOTHERS .title-ornament-green{
+    margin-top: 10px;
+    left: 5px;
+    width: 290px;
+    height: 54px;
+    transform: rotate(4deg); /* 0.0781841rad */
+  }
+
+  .sectionOTHERS .title-ornament-blue{
+    margin-top: 10px;
+    width: 300px;
+    height: 54px;
+  }
+
+  .sectionOTHERS .section-title-text{
+    width: 300px;
+    font-size: 20px;
+  }
+
+}
+
+/* ==============================
+   sectionOTHERS : レイアウト
+   PC 横3枚並び
+   ============================== */
+
+/* works cards grid */
+.sectionOTHERS .others-grid{
+  display: grid;
+  justify-content: center; /* 全体を中央寄せ */
+  row-gap: 30px;           /* 縦間隔（SP/PC共通でOK） */
+}
+
+/* ---------- PC ---------- */
+@media (min-width: 993px){
+  .sectionOTHERS .others-grid{
+    grid-template-columns: repeat(3, 351px); /* 横3枚 */
+    column-gap: 32px;                         /* 列間（Figma合わせ） */
+  }
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 992px){
+  .sectionOTHERS .others-grid{
+    grid-template-columns: 300px; /* 1列 */
+  }
+}
+
+
+
+
+/* リンク下線を消す（念のため） */
+.sectionOTHERS .work-card__link{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- ここが肝：Figmaの「Mask group」再現 --- */
+.sectionOTHERS .work-card__thumb-wrap{
+  position: relative;
+  width: 351px;      /* Figma: Rectangle 351x234 */ /* :contentReference[oaicite:2]{index=2} */
+  height: 234px;
+  overflow: hidden;  /* マスク */
+  /* 角丸なし */
+  border-radius: 0;
+
+  /* 画像ブロックのドロップシャドウ（Figmaの青系影に寄せる） */
+  box-shadow: 4px 4px 4px rgba(13, 82, 151, 0.5);
+}
+
+/* 長いページスクショを「切り抜いて」見せる */
+.sectionOTHERS .work-card__thumb{
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  /* FigmaのscaleMode:FILL相当 */
+  object-fit: cover;
+
+  /* “上のほう”が見えるように（ページスクショは上を見せたいことが多い） */
+  object-position: center top;
+}
+
+/* more（丸＋▶） */
+.sectionOTHERS .work-card__more{
+  position: absolute;
+
+  /* PC：右28px / 下24px 相当（Figmaの配置から逆算） */
+  right: 28px;
+  bottom: 24px;
+
+  width: 35.1px;   /* Figma: 35.1 */ /* :contentReference[oaicite:3]{index=3} */
+  height: 35.1px;
+  border-radius: 999px;
+  background: var(--c-more);
+  color: #fff;
+
+  display: grid;
+  place-items: center;
+
+  /* 影（Figmaは more に影あり） */
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: none; /* クリックはリンク側に渡す */
+}
+
+/* ホバー（PCのみ） */
+@media (hover: hover) and (pointer: fine){
+  .work-card__link:hover img{
+    filter: brightness(0.92);
+  }
+  .work-card__link:hover .work-card__more{
+    background: rgba(13, 82, 151, 0.9);
+  }
+}
+
+/* タイトル（見た目を揃える用：必要なら） */
+.sectionOTHERS .work-card__title{
+  margin: 16px 0 0;     /* 画像→テキストの間隔を揃える */
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------------- */
+/* SP（Figma: 300×200 / more 30×30） */
+/* ---------------- */
+@media (max-width: 992px){
+  .sectionOTHERS .work-card__thumb-wrap{
+    width: 300px;     /* Figma: Rectangle 300x200 */ /* :contentReference[oaicite:4]{index=4} */
+    height: 200px;
+  }
+
+  .sectionOTHERS .work-card__more{
+    right: 24px;
+    bottom: 21px;
+    width: 30px;      /* Figma: 30 */ /* :contentReference[oaicite:5]{index=5} */
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .sectionOTHERS .work-card__title{
+    font-size: 16px;
+  }
+}
+
+
+
+
+/* =========================
+  Footer（ナビは青帯の上 / コピーは青帯の中）
+  Figma完全一致：数値確定版
+========================= */
+:root{
+  /* nav */
+  --footer-nav-fs-pc: 14px;
+  --footer-nav-fs-sp: 12px;
+
+  --footer-nav-gap-pc: 63px;
+  --footer-nav-gap-sp: 30px;
+
+  --footer-nav-to-bar-pc: 19px;
+  --footer-nav-to-bar-sp: 10px;
+
+  /* bar */
+  --footer-bar-h-pc: 50px;
+  --footer-bar-h-sp: 50px;
+}
+
+/* footer全体 */
+
+/* フッターナビ：青帯の“外側（上）” */
+.footer-nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;     /* ←中央寄せ固定（左寄り対策） */
+  align-items: center;
+  gap: var(--footer-nav-gap-sp);
+  margin: 126px 0 var(--footer-nav-to-bar-sp);
+  padding: 0;                  /* 変な左余白対策 */
+  list-style: none;            /* ul で組んでても崩れないように */
+  text-align: center;
+}
+
+/* a の下線・色・サイズ */
+.footer-nav__link{
+  display: inline-block;
+  font-size: var(--footer-nav-fs-sp);
+  line-height: 1.5;
+  color: #EDEDED;
+  text-decoration: none;       /* ←下線消す */
+}
+
+/* 念のため：hover/visited でも下線を出さない */
+.footer-nav__link:visited,
+.footer-nav__link:hover,
+.footer-nav__link:focus,
+.footer-nav__link:active{
+  color: #EDEDED;
+  text-decoration: none;
+}
+
+/* コピー帯（青帯） */
+.footer-copy{
+  background: #0D5297;
+  height: var(--footer-bar-h-sp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-copy__text{
+  color: #EDEDED;
+  font-size: 12px; /* コピーのfsが別指定なら教えて */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== PC ===== */
+@media (min-width: 993px){
+  .footer-nav{
+    gap: var(--footer-nav-gap-pc);
+    margin-bottom: var(--footer-nav-to-bar-pc);
+    margin-top: 258px;
+  }
+
+  .footer-nav__link{
+    font-size: var(--footer-nav-fs-pc);
+  }
+
+  .footer-copy{
+    height: var(--footer-bar-h-pc);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

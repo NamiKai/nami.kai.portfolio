@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT点呼キーパー（スクール課題）</title>
+  <link rel="stylesheet" href="css/works-01.css" />
+</head>
+
+<body>
+  <!-- ==================================================
+    HEADER（常に表示 / PCナビ + SPハンバーガー）
+  =================================================== -->
+  <header class="header" id="top">
+    <div class="header-inner">
+      <a class="header-logo en" href="#top" aria-label="トップへ戻る">NAMI KAI</a>
+
+      <!-- PCナビ（992px以上で表示想定） -->
+      <nav class="pc-nav" aria-label="グローバルナビゲーション">
+        <ul class="pc-nav-list">
+          <li class="pc-nav-item"><a class="pc-nav-link en" href="../index.html#works">WORKS</a></li>
+          <li class="pc-nav-item"><a class="pc-nav-link en" href="../index.html#about">ABOUT ME</a></li>
+          <li class="pc-nav-item"><a class="pc-nav-link en" href="../index.html#skills">skills &amp; Tools</a></li>
+        </ul>
+      </nav>
+
+      <!-- SPハンバーガー（992px以下で表示想定） -->
+      <button
+        class="hamburger"
+        type="button"
+        aria-controls="spMenu"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="hamburger-line-top" aria-hidden="true"></span>
+        <span class="hamburger-line-middle" aria-hidden="true"></span>
+        <span class="hamburger-line-bottom" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+   <!-- ==================================================
+    SP MENU（右からスライドイン / フルスクリーン / 縦中央揃え）
+    ※CSS/JSは後で（リンク押下で閉じる等）
+  =================================================== -->
+  <nav class="sp-menu" id="spMenu" aria-hidden="true" aria-label="スマホメニュー">
+    <div class="sp-menu-panel">
+      <ul class="sp-menu-nav">
+        <li class="sp-menu-item"><a class="sp-menu-link en" href="../index.html#works">WORKS</a></li>
+        <li class="sp-menu-item"><a class="sp-menu-link en" href="../index.html#about">ABOUT ME</a></li>
+        <li class="sp-menu-item"><a class="sp-menu-link en" href="../index.html#skills">skills &amp; Tools</a></li>
+      </ul>
+    </div>
+    <div class="sp-menu-bg" aria-hidden="true"></div>
+  </nav>
+
+
+  <main>
+    <!-- =========================
+      SECTION 1: WORKS TITLE + INFO
+    ========================== -->
+    <section class="work-intro" aria-labelledby="work-title">
+      <div class="work-title">
+        <!-- 見出しバー装飾（黄→青→緑の重なり） -->
+        <span class="work-title__ornament work-title__ornament--yellow" aria-hidden="true"></span>
+        <span class="work-title__ornament work-title__ornament--blue" aria-hidden="true"></span>
+        <span class="work-title__ornament work-title__ornament--green" aria-hidden="true"></span>
+
+        <h1 id="work-title" class="work-title__text">IT点呼キーパー<br class="sp-only">（スクール課題）</h1>
+      </div>
+
+<!-- Breadcrumb（PC only） -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+    <li class="breadcrumb__item">
+      <a href="../index.html">トップページ</a>
+    </li>
+    <li class="breadcrumb__item">
+      <a href="../index.html#works">WORKS</a>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">
+      IT点呼キーパー（スクール課題）
+    </li>
+      </ol>
+    </nav>
+
+
+
+      <div class="work-info" aria-label="制作情報">
+        <dl class="work-info__list">
+          <div class="work-info__row">
+            <dt class="work-info__term">クライアント（仮想）</dt>
+            <dd class="work-info__desc">IT点呼キーパー（スクール課題）</dd>
+          </div>
+
+          <div class="work-info__row">
+            <dt class="work-info__term">制作日</dt>
+            <dd class="work-info__desc">2025年10月～12月 制作</dd>
+          </div>
+
+          <div class="work-info__row">
+            <dt class="work-info__term">制作期間</dt>
+            <dd class="work-info__desc">コーディング / 約6週間</dd>
+          </div>
+
+          <div class="work-info__row">
+            <dt class="work-info__term">制作目的</dt>
+            <dd class="work-info__desc">スクール課題<br>Figmaで指定されたデザインカンプ通りにランディングページをコーディングする</dd>
+          </div>
+
+          <div class="work-info__row">
+            <dt class="work-info__term">使用ツール</dt>
+            <dd class="work-info__desc">Visual Studio Code</dd>
+          </div>
+
+          <div class="work-info__row">
+            <dt class="work-info__term">プレビュー</dt>
+            <dd class="work-info__desc"><a class="ITtenkoPV" href="ITtenko_kainami/index.html">ここをクリック</a></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- sectionKODAWARI（こだわりポイント紹介） -->
+<section class="sectionKODAWARI" id="kodawari">
+  <div class="section-inner">
+    <!-- 見出しバー（WORKS/ABOUTと同系の装飾をCSSで付与） -->
+    <div class="section-title">
+      <div class="title-ornament-blue" aria-hidden="true"></div>
+      <div class="title-ornament-green" aria-hidden="true"></div>
+      <h2 class="section-title-text">こだわりポイントなど</h2>
+    </div>
+
+    <!-- こだわりリスト -->
+    <div class="kodawari-list">
+      <!-- 1 -->
+      <article class="kodawari-item" id="kodawari-mainvisual">
+        <figure class="kodawari-media">
+          <img src="img/ITtenkoPCK1.png" alt="">
+        </figure>
+
+        <div class="kodawari-body">
+          <h3 class="kodawari-title">タブ表示</h3>
+          <p class="kodawari-text">
+            直感的にわかりやすいUIをJavaScriptで実装。<br>
+            背景のグラデーションもCSSで表現しています。
+          </p>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="kodawari-item" id="kodawari-button">
+        <figure class="kodawari-media">
+          <img src="img/ITtenkoPCK2.png" alt="">
+        </figure>
+
+        <div class="kodawari-body">
+          <h3 class="kodawari-title">ボタンの色が変わるしかけ</h3>
+          <p class="kodawari-text">
+            一定の箇所までスクロールすると色が変わるようになっているヘッダーボタン。
+            マウスオーバーすると少し淡くなるようになっていて、押せることがわかりやすくなっています。
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- sectionSS（サイトのメインページのスクリーンショット） -->
+<section class="sectionSS" id="screenshots">
+  <div class="section-inner">
+
+    <!-- 見出しバー（WORKS/ABOUTと同系の装飾はCSSで付与） -->
+    <div class="section-title">
+      <div class="title-ornament-yellow" aria-hidden="true"></div>
+      <div class="title-ornament-blue" aria-hidden="true"></div>
+      <h2 class="section-title-text">サイトのメインページの<br class="sp-only">スクリーンショット</h2>
+    </div>
+
+    <!-- =========================
+      PC表示：タブなし（横に2枚）
+      ※CSSで >=993px の時だけ表示する
+    ========================== -->
+    <div class="sectionSS__pc" aria-label="スクリーンショット（PC表示）">
+      <div class="ss-grid">
+        <div class="ss-box">
+        <figure class="ss-item ss-item--pc">
+          <img src="img/ITtenkoPC.png" alt="IT点呼キーパー PC版 メインページのスクリーンショット">
+        </figure>
+        <div class="scroll_down" >
+          <a href="#">scroll</a>
+        </div>
+      </div>
+
+        <div class="ss-box">
+        <figure class="ss-item ss-item--sp">
+          <img src="img/ITtenkoSP.png" alt="IT点呼キーパー SP版 メインページのスクリーンショット">
+        </figure>
+        <div class="scroll_down" >
+          <a href="#">scroll</a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+      SP表示：タブ切り替え（SPのみ）
+      ※CSSで <=992px の時だけ表示する
+    ========================== -->
+    <div class="sectionSS__sp" aria-label="スクリーンショット（SP表示：タブ切り替え）">
+      <div class="tabs" data-tabs="sectionSS">
+        <div class="tabs-nav" role="tablist" aria-label="スクリーンショット切り替え">
+          <button type="button" class="tabs-tab is-active" role="tab"
+            aria-selected="true" aria-controls="ss-panel-pc" id="ss-tab-pc"
+            data-tab="pc">
+            PC
+          </button>
+          <button type="button" class="tabs-tab" role="tab"
+            aria-selected="false" aria-controls="ss-panel-sp" id="ss-tab-sp"
+            data-tab="sp">
+            SP
+          </button>
+        </div>
+
+        <div class="tabs-panels">
+          <!-- PC -->
+          <div class="tabs-panel is-active" role="tabpanel"
+            id="ss-panel-pc" aria-labelledby="ss-tab-pc"
+            data-tab-content="pc">
+            <!-- SPでは「枠の中をスクロールして全体が見える」仕様にする想定 -->
+            
+            <div class="ss-box ss-box--spTab">
+            <div class="ss-scroll">
+              
+              <img src="img/ITtenkoPC.png" alt="IT点呼キーパー PC版 メインページのスクリーンショット">
+            </div>
+            <div class="scroll_down scroll_down--sp">
+            <a href="#">scroll</a>
+            </div>
+            </div>
+          </div>
+
+          <!-- SP -->
+          <div class="tabs-panel" role="tabpanel"
+            id="ss-panel-sp" aria-labelledby="ss-tab-sp"
+            data-tab-content="sp" hidden>
+            <div class="ss-box ss-box--spTab">
+            <div class="ss-scroll">
+              
+              <img src="img/ITtenkoSP.png" alt="IT点呼キーパー SP版 メインページのスクリーンショット">
+            </div>
+            <div class="scroll_down scroll_down--sp">
+            <a href="#">scroll</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- sectionOTHERS / 他の作品を見る -->
+<section class="sectionOTHERS" id="others">
+  <div class="section-inner">
+
+    <!-- 見出しバー -->
+    <div class="section-title">
+      <div class="title-ornament-blue" aria-hidden="true"></div>
+      <div class="title-ornament-green" aria-hidden="true"></div>
+      <h2 class="section-title-text">他の作品を見る</h2>
+    </div>
+
+    <!-- works cards -->
+    <div class="others-grid">
+
+      <!-- card 1 -->
+      <article class="work-card">
+        <a class="work-card__link" href="works-01.html">
+          <div class="work-card__thumb-wrap">
+            <img
+              class="work-card__thumb"
+              src="img/miraikoumutenPCtop.png"
+              alt=""
+            />
+
+            <!-- more（丸＋▶） -->
+            <span class="work-card__more" aria-hidden="true">
+              ▶
+            </span>
+          </div>
+
+          <h3 class="work-card__title">
+            みらい工務店（スクール課題）
+          </h3>
+        </a>
+      </article>
+
+      <!-- card 2 -->
+      <article class="work-card">
+        <a class="work-card__link" href="works-02.html">
+          <div class="work-card__thumb-wrap">
+            <img
+              class="work-card__thumb"
+              src="img/transportPCtop.png"
+              alt=""
+            />
+
+            <span class="work-card__more" aria-hidden="true">
+              ▶
+            </span>
+          </div>
+
+          <h3 class="work-card__title">
+            トランスポート・ジャパン株式会社<br>（スクール課題）
+          </h3>
+        </a>
+      </article>
+
+      <!-- card 3 -->
+      <article class="work-card">
+        <a class="work-card__link" href="works-04.html">
+          <div class="work-card__thumb-wrap">
+            <img
+              class="work-card__thumb"
+              src="img/learnbridgePC.png"
+              alt=""
+            />
+
+            <span class="work-card__more" aria-hidden="true">
+              ▶
+            </span>
+          </div>
+
+          <h3 class="work-card__title">
+            ラーニング・フューチャー株式会社<br>（スクール課題）
+          </h3>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+  </main>
+
+ <!-- ==================================================
+    FOOTER
+  =================================================== -->
+  <footer class="footer">
+  <!-- フッターナビ：青帯の“外側（上）”に置く -->
+  <nav class="footer-nav" aria-label="Footer">
+    <a class="footer-nav__link en" href="../index.html#works">WORKS</a>
+    <a class="footer-nav__link en" href="../index.html#about">ABOUT ME</a>
+    <a class="footer-nav__link en" href="../index.html#skills">SKILLS &amp; TOOLS</a>
+  </nav>
+
+  <!-- コピー：青い帯（背景あり） -->
+  <div class="footer-copy">
+    <small class="footer-copy__text">© NAMI KAI</small>
+  </div>
+</footer>
+
+
+  <!-- JSは後で（ハンバーガー開閉・リンク押下で閉じる） -->
+  <script src="js/works.js"></script>
+</body>
+</html>
