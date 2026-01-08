@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/*クラス定義 (これより下を消す)*/
+
+@use "variable" as vr;
+
+.footer {
+    background-color: rgb(201, 201, 201);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: vr.$c-white;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 992px) {
+    .footer{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    p {
+    font-size: 0.6rem;
+}
+}
+}

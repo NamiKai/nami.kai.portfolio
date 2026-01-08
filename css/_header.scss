@@ -1,0 +1,315 @@
+@charset "UTF-8";
+
+/*クラス定義 (これより下を消す)*/
+@use "variable" as vr;
+
+html { scroll-behavior: smooth;}
+
+
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background-color: vr.$c-white;
+z-index: 999;
+font-weight: 700;
+font-style: bold;
+}
+
+.header-inner {
+display: flex;
+justify-content: space-between;
+margin: 0 auto;
+align-items: center;
+padding: 20px 0;
+max-width: vr.$container-middle;
+}
+
+.logo {
+width: 20%;
+margin-right: 20%;
+}
+
+.hdicon1,
+.hdicon2 {
+  display: none;
+}
+
+.hamburger {
+    display: none;
+  }
+
+.hdmenu:hover,
+.logo:hover,
+.hdmenubutton:hover {
+    opacity: 0.7;
+}
+
+a.hdmenu {
+    text-decoration: none ;
+    color: vr.$c-main ;
+}
+
+.hdmenubutton,
+a.hdmenubutton {
+    display: inline-flex;
+    text-align: center;
+    gap: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    border: 3px solid vr.$c-main;
+    border-radius: 100vh;
+    background-color: vr.$c-white;
+    color: vr.$c-main;
+    padding: 1rem 2rem;
+}
+
+.hdmenubutton.change {
+  background-color: vr.$c-accent; 
+  color: vr.$c-white;
+  border-color: vr.$c-accent;
+}
+
+.header__nav {
+  position: static; /* これにする */
+  height: auto;
+}
+
+.nav__items {
+  display: flex;
+  gap: 2rem; /* ← 等間隔にしたい幅を調整 */
+  align-items: center;
+}
+
+.nav__items li {
+  list-style: none;
+}
+
+.nav__download {
+  display: none; /* PCでは非表示 */
+}
+
+@media (max-width: 992px) {
+
+  .header-inner {
+  display: flex; /*ロゴとハンバーガーメニューを横に並べる*/
+  align-items: center;
+  justify-content: space-between;
+  height: 55px; /*親要素の高さを継承*/
+  position: relative;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* ヘッダーのロゴ部分 */
+.logo {
+  width: 133px;
+  padding-left: 1.5rem;
+  margin-right: 50px;
+  display: block;
+}
+
+.hdicon1 {
+  color: vr.$c-main;
+  align-items: center;
+  border: 1.5px solid vr.$c-main;
+  font-size: 19px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.hdicon2 {
+  color: vr.$c-main;
+  align-items: center;
+  border: 1.5px solid vr.$c-main;
+  font-size: 19px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.hdicon1.change {
+  background-color: vr.$c-accent; 
+  color: vr.$c-white;
+  border-color: vr.$c-accent;
+}
+
+.hdicon2.change {
+  background-color: vr.$c-accent; 
+  color: vr.$c-white;
+  border-color: vr.$c-accent;
+}
+
+.hdicon1:hover,
+.hdicon2:hover {
+    opacity: 0.7;
+}
+
+.header__title img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* ヘッダーのナビ部分 */
+.header__nav {
+position: fixed;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    transform: translateX(100%);
+    background-color: #fff;
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden; /* ← 非表示扱いにする */
+  }
+
+  .header__nav.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible; /* ← 表示状態 */
+  }
+
+
+
+/* ハンバーガーメニュー */
+.header__hamburger {
+  width: 30px;
+  height: 80px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  display: block;
+  background-color: transparent; 
+  border-color: transparent; 
+  overflow: visible; 
+}
+.hamburger span {
+  width: 38px; 
+  height: 4px;
+  background-color: vr.$c-main;
+  display: block;
+  margin: 5px 0; 
+  transition: all 0.4s ease;
+  transform-origin: center; /* ★回転の中心を中央に */
+  position: relative;
+  z-index: 9999;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  margin: 10px 0;
+}
+
+.hamburger span:nth-child(3) {
+  top: 0;
+}
+
+.header__nav.active {
+  transform: translateX(0);
+}
+
+.hamburger.active span:nth-child(1) {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: -13px;
+  transform: rotate(-45deg);
+}
+.nav-items {
+  display: flex;
+    flex-direction: column; /* ← 縦並びに */
+    align-items: flex-start; /* ← 左揃え */
+    margin-top: 150px;
+    padding: 20px 20px; 
+    gap: 0rem
+}
+
+.nav__items li {
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+
+a.hdmenubutton {
+    display: inline-flex;
+    text-decoration: none;
+    justify-content: center;
+    color: vr.$c-white; 
+    gap: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid vr.$c-accent;
+    border-radius: 100vh;
+    padding: 1.5rem 1rem;
+    background-color: vr.$c-accent;
+    width: 100%;
+  }
+
+  a.hdmenubutton:hover {
+    opacity: 0.7;
+  }
+
+  .nav__download {
+    display: block; /* スマホでは表示 */
+    text-align: center;
+  }
+
+  .nav__download a {
+    display: inline-flex;
+    text-decoration: none;
+    color: vr.$c-white; 
+    gap: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid vr.$c-main;
+    border-radius: 100vh;
+    padding: 1.5rem 1rem;
+    background-color: vr.$c-main;
+    justify-content: center;
+    width: 100%;
+    margin-top: -1rem;
+  }
+
+  .nav__download a:hover {
+    opacity: 0.7;
+  }
+
+/* ナビのリンク */
+.hdmenu {
+  color: vr.$c-main;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.header__nav .hdmenu:hover {
+  opacity: 0.7;
+}
+
+.hdmenu:last-child {
+  margin-bottom: 0;
+}
+}

@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+/*クラス定義 (これより下を消す)*/
+@use "variable" as vr;
+
+.mainvisual {
+width: 100%;
+    height: auto;
+    aspect-ratio: 1090 / 781;
+    background-image: url(../img/top-mv-pc@2x.png);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 100% auto;
+    background-color: vr.$c-sub;
+    
+}
+
+.mv {
+    display: flex;
+    max-width: vr.$container-middle;
+    justify-content: space-between;
+    padding-top: 50px;
+    gap: 50px;
+    margin: 0 auto;
+}
+
+.mainvileft {
+    max-width: 100%;
+    margin-top: 150px;
+    color: vr.$c-white;
+    h3 {
+        margin-bottom: 20px;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 0.8;
+    }
+    h2 {
+        font-weight: 700;
+        line-height: 1.5;
+        font-size: 40px;
+        letter-spacing: 0.8;
+    }
+}
+
+.title-dots {
+font-size: 40px;
+font-weight: 700;
+letter-spacing: 0.8;
+color: vr.$c-main;
+margin-top: -10px;
+}
+
+.spimg {
+    display: none;
+}
+
+.mainviright {
+    margin-top: 180px;
+    img {
+    max-width: 80%;
+}
+}
+
+.mainviicon {
+    color: vr.$c-main;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+        }
+
+.mainviiconmaru {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 125px;
+    background-color: vr.$c-white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.mvbutton {
+    display: flex;
+    max-width: vr.$container-narrow;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    a {
+        margin-top: 50px;
+    }
+}
+
+.mvbutton1,
+a.mvbutton1 {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: vr.$c-white;
+    background: vr.$c-main;
+    border-radius: 100vh;
+    padding: 2.5rem 100px;
+    width: 410px;
+}
+
+.mvbutton2,
+a.mvbutton2 {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: vr.$c-white;
+    background: vr.$c-accent;
+    border-radius: 100vh;
+    padding: 2.5rem 100px;
+    width: 410px;
+}
+
+.mvbutton1:hover,
+.mvbutton2:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 992px) {
+.mainvisual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 473 / 781;
+    background-image: url(../img/top-mv-sp@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: #e6fdff;
+
+    }
+.mv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 55px;
+    padding-top: 0px;
+    gap: 0px;
+}
+
+.mainviright {
+    display: none;
+}
+
+.spimg {
+    
+    display: flex;
+    justify-content: center;
+    img {
+    max-width: 60%;
+}
+}
+
+
+.mainvileft {
+    max-width: 100%;
+    margin-top: 150px;
+    color: vr.$c-white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 80px;
+    position: relative;
+    z-index: 5;
+    h3 {    
+        margin-bottom: 10px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    h2 {
+        line-height: 1.2;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+    }
+}
+
+.title-dots {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    padding-top: 6px;
+    padding-bottom: 15px;
+}
+
+.mainviicon {
+    color: vr.$c-main;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;
+        }
+
+.mainviiconmaru {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: vr.$c-white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.mvbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.1rem;
+    margin-top: 15px;
+    a {
+        margin-top: 0;
+    }
+}
+.mvbutton1,
+a.mvbutton1,
+.mvbutton2,
+a.mvbutton2 {
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 1.3rem 1rem;
+    gap: 10px;
+    width: 35%;
+}
+}
