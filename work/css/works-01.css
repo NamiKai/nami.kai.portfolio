@@ -252,7 +252,7 @@ body.is-menu-open{
   ITtenkoPV
 ========================================================= */
 .ITtenkoPV {
-  text-decoration: none;
+  
   color: #EDEDED;
 }
 
@@ -730,7 +730,7 @@ body.is-menu-open{
 
 @media (max-width: 992px){
   .sectionSS .section-inner{
-    width: 300px;
+    width: 356px;
     margin-top: 80px;
   }
 }
@@ -878,9 +878,11 @@ margin-top: 10px;
 /* ===== SPタブ内だけ：スクショ＋scrollを右下揃えで横並び ===== */
 @media (max-width: 992px){
   .sectionSS__sp .ss-box--spTab{
+
     display: flex;
     align-items: flex-end; /* 右下揃え */
     gap: 4px;
+    padding-left: 28px;
   }
 
 
@@ -948,7 +950,7 @@ margin-top: 10px;
   justify-content: center;
   gap: 120px;
   margin-bottom: 16px;
-  width: 272px;
+  width: 300px;
 }
 
 .sectionSS .tabs-tab{
@@ -978,7 +980,7 @@ margin-top: 10px;
 
 /* SP側のスクロール枠（あなたのHTMLでは .ss-scroll を使っている） */
 .sectionSS .ss-scroll{
-  width: 272px;
+  width: 300px;
   height: 500px;        /* スクロール枠の高さ（後でFigmaに合わせて詰める） */
   overflow: auto;
   -webkit-overflow-scrolling: touch;

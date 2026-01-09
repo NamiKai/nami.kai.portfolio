@@ -364,10 +364,10 @@ body.is-menu-open{
   .hero-title::before{
     content: "";
     position: absolute;
-    left: 28.48%;
-    top: 33.62%;
-    width: 55.41%;
-    height: 72.72%;
+    left: 8%;
+    top: 26%;
+    width: 90%;
+    height: 90%;
 
     /* ここ重要：画像パスを実ファイルに合わせる */
     background-image: url("background-shape-name.png");
@@ -382,11 +382,11 @@ body.is-menu-open{
 
   .hero-name{
     position: absolute;
-    left: 34.93%;
-    top: 58.31%;
+    left: 26.93%;
+    top: 54.31%;
     margin: 0;
     z-index: 3;
-    font-size: 24px;
+    font-size: 30px;
     letter-spacing: .08em;
     line-height: 1;
     color: var(--c-text);
@@ -603,19 +603,18 @@ margin-top: 10px;
   padding: 20px 20px;
   background: var(--c-accent-green);
   border-radius: 50%;
-  width: 30px;
   aspect-ratio: 1/1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-
+  text-align: center;
 }
 
 @media (max-width: 992px){
   .work-more{
-  font-size: 12px;
-  width: 20px;
+  font-size: 14px;
+  padding: 16px 16px;
   }
 }
 
