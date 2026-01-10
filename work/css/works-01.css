@@ -254,6 +254,10 @@ body.is-menu-open{
 .ITtenkoPV {
   
   color: #EDEDED;
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 /* =========================================================
