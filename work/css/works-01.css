@@ -734,8 +734,11 @@ body.is-menu-open{
 
 @media (max-width: 992px){
   .sectionSS .section-inner{
-    width: 356px;
+    width: 328px;
     margin-top: 80px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 28px;
   }
 }
 
@@ -813,6 +816,10 @@ margin-top: 10px;
   margin-top: 30px;
 }
 
+.sectionSS .tabs{
+  margin-top: 120px
+}
+
 /* スクロールダウンアニメーションとスクショを並べる */
 .ss-box {
   display: flex;
@@ -884,9 +891,10 @@ margin-top: 10px;
   .sectionSS__sp .ss-box--spTab{
 
     display: flex;
+
     align-items: flex-end; /* 右下揃え */
     gap: 4px;
-    padding-left: 28px;
+
   }
 
 
