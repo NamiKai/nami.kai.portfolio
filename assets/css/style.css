@@ -85,6 +85,7 @@ body.is-menu-open{
   color: var(--c-text);
   text-decoration: none;
   letter-spacing: .08em;
+  font-size: 16px;
 }
 
 /* =========================
@@ -1598,7 +1599,6 @@ margin-top: 10px;
   .footer-nav{
     gap: var(--footer-nav-gap-pc);
     margin-bottom: var(--footer-nav-to-bar-pc);
-    margin-top: 258px;
   }
 
   .footer-nav__link{
